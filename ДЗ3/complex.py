@@ -11,6 +11,22 @@ class complexnum:
     def get(self):
         return self.re , self.im
 
+    def get_conv_alg_to_exp(self):
+        return self.r , self.phi
+
+    def conv_alg_to_exp(self):
+        self.r = math.sqrt((self.re ** 2 + self.im ** 2))
+        self.phi = math.atan(self.re / self.im)
+        if self.re < 0 and self.im > 0:
+            self.phi = math.pi - self.phi
+        elif self.re < 0 and self.im < 0:
+            self.phi = math.pi + self.phi
+        elif self.re > 0 and self.im < 0:
+            self.phi = - self.phi
+        else:
+            self.phi = self.phi
+        return
+
 def sum(self, other):
     return complexnum(self.re + other.re, self.im + other.im)
 z1 = complexnum(1, 2)
@@ -34,5 +50,7 @@ def div(self, other):
 zdiv = div(z1, z2)
 print(zdiv.get(), '-частное')
 
-
+za = complexnum(1, 1)
+za.conv_alg_to_exp()
+print(*za.get_conv_alg_to_exp(), "-конвертация из алгебраической в показательную форму")
 
