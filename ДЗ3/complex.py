@@ -15,15 +15,24 @@ def sum(self, other):
     return complexnum(self.re + other.re, self.im + other.im)
 z1 = complexnum(1, 2)
 z2 = complexnum(2, 3)
-z = sum(z1, z2)
-print(*z.get())
+zsum = sum(z1, z2)
+print(zsum.get(), '-сумма')
 
+def sub(self, other):
+    return complexnum(self.re - other.re, self.im - other.im)
+zsub = sub(z1, z2)
+print(zsub.get(), '-разность')
 
+def mult(self, other):
+    return complexnum((self.re * other.re) - (self.im * other.im), (self.im * other.re) + (self.re * other.im))
+zmult = mult(z1, z2)
+print(zmult.get(), '-произведение')
 
-
-
-
-
+def div(self, other):
+    r = (other.re ** 2 + other.im ** 2)
+    return complexnum((self.re * other.re + self.im * other.im) / r, (self.im * other.re - self.re * other.im) / r)
+zdiv = div(z1, z2)
+print(zdiv.get(), '-частное')
 
 
 
