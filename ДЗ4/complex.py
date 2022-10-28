@@ -76,6 +76,10 @@ class complexnum:
             return (other / self.re, other / self.im)
         return (other.re * self.re + other.im * self.im) / (self.re ** 2 + self.im ** 2), (other.b * self.a - other.a * self.b) / (self.a ** 2 + self.b ** 2)
 
+
+
+
+
 z1 = complexnum(1, 2)
 z2 = complexnum(2, 3)
 print(z1+z2, '-сумма двух комплексных чисел')
