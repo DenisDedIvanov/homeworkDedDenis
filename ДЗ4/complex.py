@@ -76,7 +76,26 @@ class complexnum:
             return (other / self.re, other / self.im)
         return (other.re * self.re + other.im * self.im) / (self.re ** 2 + self.im ** 2), (other.im * self.re - other.re * self.im) / (self.re ** 2 + self.im ** 2)
 
+    def __getitem__(self, key):
+        if key == 0:
+            return self.re
+        elif key == 1:
+            return self.im
 
+    def __setitem__(self, key, value):
+        if key == 0:
+            self.re = value
+        elif key == 1:
+            self.im = value
+
+    def __eq__(self, other):
+        if isinstance(other, numbers.Number):
+            return (self.re == other and self.im == 0)
+        else:
+            return self.re == other.re and self.im == other.im
+
+    def __abs__(self):
+        return (self.re**2 + self.im**2)**0.5
 
 
 
@@ -91,3 +110,6 @@ print(z1*z2, '-произведение двух комплексных чисе
 print(z1*9, '-произведение комплексного и действительного числа')
 print(z1//z2, '-деление двух комплексных чисел')
 print(z1//9, '-деление комплексного и действительного числа')
+print(z1[0], '-мнимая часть комплексного число')
+print(z1[1], '-действительная часть комплексного число')
+print(abs(z1), 'модуль комплексного числа')
