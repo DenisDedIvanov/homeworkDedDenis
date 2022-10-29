@@ -67,14 +67,14 @@ class complexnum:
 
     def __floordiv__(self, other):
         if isinstance(other, numbers.Number):
-             (self.re / other, self.im / othe)
+             (self.re / other, self.im / other)
         else:
             return (self.re * other.re + self.im * other.im) / (other.re ** 2 + other.im ** 2), (self.im * other.re - self.re * other.im) / (other.re ** 2 + other.im ** 2)
 
     def __rfloordiv__(self, other):
         if isinstance(other, numbers.Number):
             return (other / self.re, other / self.im)
-        return (other.re * self.re + other.im * self.im) / (self.re ** 2 + self.im ** 2), (other.b * self.a - other.a * self.b) / (self.a ** 2 + self.b ** 2)
+        return (other.re * self.re + other.im * self.im) / (self.re ** 2 + self.im ** 2), (other.im * self.re - other.re * self.im) / (self.re ** 2 + self.im ** 2)
 
 
 
