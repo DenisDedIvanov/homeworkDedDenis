@@ -96,3 +96,37 @@ class complexnum:
 
     def __abs__(self):
         return (self.re**2 + self.im**2)**0.5
+
+print("Введите два комплексных числа в формате: x1 y1 x2 y2, где z1 = x1 + iy1, z2 = x2 + iy2 .")
+try:
+    arr = [float(t) for t in input().split()]
+except ValueError:
+    print("Пожалуйста, введите числа!")
+else:
+    try:
+        A = complexnum(arr[0], arr[1])
+        B = complexnum(arr[2], arr[3])
+    except IndexError:
+        print("Вы ввели менее 4 чисел. Пожалуйста, введите 4 числа!")
+
+print('Введите операцию:')
+operator = input()
+if operator == '+':
+    print (A + B)
+elif operator == '-':
+    print(A - B)
+elif operator == '*':
+    print(A * B)
+elif operator == '/':
+    try:
+        print(A // B)
+    except ZeroDivisionError:
+        print('Деление на ноль! Пожалуйста, ведите другое комплексное число!')
+elif operator == 'abs':
+    print('Модуль первого числа:', abs(A))
+    print('Модуль второго числа:', abs(B))
+try:
+    if operator not in ("+", "-", '/', '*', 'abs'):
+        raise TypeError
+except TypeError:
+    print('Вы ввели операцию непредусмотренную в данной программе')
