@@ -123,4 +123,4 @@ for i in range(5):
     A.append(i)
 
 A.save()
-print(A.open('date.bin'))
+print(A.open('list.bin'))
